@@ -1,46 +1,286 @@
 <!doctype html>
 <html lang="en" translate="no">
-  <head>
-    <!-- customize head -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="same-origin" />
-    <meta name="generator" content="OpenList" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="google" content="notranslate" />
-    <link href="/static/manifest.json" rel="manifest" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="OpenList" />
-    <link
-      rel="apple-touch-icon"
-      href="https://cdn.oplist.org/gh/OpenListTeam/Logo@main/logo.png"
-    />
-    <script
-      src="https://g.alicdn.com/IMM/office-js/1.1.5/aliyun-web-office-sdk.min.js"
-      async
-    ></script>
-    <link
-      rel="shortcut icon"
-      type="image/ico"
-      href="https://cdn.oplist.org/gh/OpenListTeam/Logo@main/logo.svg"
-    />
-    <title>Loading...</title>
-    <script>
-      window.OPENLIST_CONFIG = {
-        cdn: undefined,
-        monaco_cdn: undefined,
-        base_path: undefined,
-        api: undefined,
-        main_color: undefined,
-      }
-      window.__dynamic_base__ = window.OPENLIST_CONFIG.cdn || ""
-    </script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
 
-    <script src="/src/main.tsx" type="module"></script>
-    <!-- customize body -->
-  </body>
+<head>
+  <!-- customize head -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="same-origin" />
+  <meta name="generator" content="OpenList" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="google" content="notranslate" />
+  <link href="/static/manifest.json" rel="manifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="OpenList" />
+  <link rel="apple-touch-icon" href="https://cdn.oplist.org/gh/OpenListTeam/Logo@main/logo.png" />
+  <script src="https://g.alicdn.com/IMM/office-js/1.1.5/aliyun-web-office-sdk.min.js" async></script>
+  <script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=String.prototype.replaceAll"></script>
+  <link rel="shortcut icon" type="image/ico" href="https://cdn.oplist.org/gh/OpenListTeam/Logo@main/logo.svg" />
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <style>
+    .hope-ui-light {
+      --my-color: rgba(255, 255, 255, 0.4);
+      --hope-colors-transparent1: rgb(from var(--hope-colors-neutral3) r g b / 50%);
+      --hope-colors-transparent2: rgb(from var(--hope-colors-neutral4) r g b / 70%);
+      --my-color-transparent: rgba(255, 255, 255, 0.3);
+      --my-color-transparent1: rgba(0, 0, 0, 0.15);
+    }
+
+    .hope-ui-dark {
+      --my-color: rgba(0, 0, 0, 0.4);
+      --hope-colors-transparent1: rgb(from var(--hope-colors-neutral3) r g b / 50%);
+      --hope-colors-transparent2: rgb(from var(--hope-colors-neutral4) r g b / 70%);
+      --my-color-transparent: rgba(0, 0, 0, 0.3);
+      --my-color-transparent1: rgba(255, 255, 255, 0.15);
+    }
+
+    /*全局字体*/
+    * {
+      font-family: LXGW WenKai !important;
+      font-weight: bold !important;
+    }
+
+
+    /* 背景图片 */
+    body {
+      background-image: linear-gradient(to bottom, var(--my-color), var(--my-color)), url("https://www.loliapi.com/acg") !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      background-position-x: center !important;
+    }
+
+
+    /* 登录 */
+    /* 登录页面背景 */
+    .hope-c-PJLV.hope-c-PJLV-ihWgyFw-css,
+    .hope-c-PJLV.hope-c-PJLV-ibiABng-css {
+      display: none !important;
+    }
+
+    /* 登录窗口背景 */
+    /* 白天模式 */
+    .hope-c-PJLV-ifjOQLV-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* 阴影效果 */
+    }
+
+    /* 夜间模式 */
+    .hope-c-PJLV-iubUra-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* 阴影效果 */
+    }
+
+    /* 输入框 */
+    .hope-c-kvTTWD-hYRNAb-variant-filled {
+      background-color: var(--hope-colors-transparent1) !important;
+    }
+
+    .hope-c-kvTTWD-hYRNAb-variant-filled:focus {
+      background-color: var(--hope-colors-transparent2) !important;
+    }
+
+    /* 顶部 */
+    .header.hope-center.hope-c-jKOUQW.hope-c-PJLV.hope-c-PJLV-ikaMhsQ-css {
+      width: 99%;
+      max-width: 980px;
+      background: none;
+      box-sizing: content-box;
+      padding: 0;
+    }
+
+    .header.hope-center>.hope-c-PJLV-iicyfOA-css {
+      all: revert;
+      width: var(--hope-sizes-full);
+      padding-inline: 2%;
+    }
+
+    .header.hope-center>.hope-c-PJLV-iicyfOA-css>.hope-c-PJLV-iiOacaA-css {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: var(--my-color-transparent) !important;
+      border-radius: var(--hope-radii-xl) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 导航条 */
+    .hope-c-PJLV-idaeksS-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      border-radius: var(--hope-radii-xl) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 底部 */
+    #root>.footer {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent);
+      /* 透明背景色 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* 阴影效果 */
+      border-radius: var(--hope-radii-xl);
+      width: 220px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* 主列表-白天模式 */
+    .hope-c-PJLV-igScBhH-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 主列表-夜间模式 */
+    .hope-c-PJLV-iigjoxS-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+
+    /* 右上视图切换菜单 */
+    .hope-c-PJLV-iSMXDf-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 右上角返回顶部 */
+    .hope-c-PJLV-ihVEsOa-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .hope-c-PJLV-ihVEsOa-css:hover {
+      background-color: rgb(24, 144, 255) !important;
+    }
+
+    /* 右下视图切换菜单 */
+    .hope-c-PJLV-ijgzmFG-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 本地设置菜单 */
+    .hope-c-hOYTCS {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 图标可读性保证 */
+    .hope-center.hope-c-jKOUQW.hope-c-PJLV.hope-c-PJLV-idZdFjR-css {
+      background: var(--hope-colors-transparent1);
+      /* 半透明白色衬底 */
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    /* 本地设置二级菜单 */
+    .hope-c-XJURY {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--my-color-transparent) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 二级菜单悬停效果 */
+    .hope-c-gUeVCo[data-active] {
+      background-color: var(--my-color-transparent1) !important;
+    }
+
+    /* 搜索按钮毛玻璃 */
+    button.hope-icon-button.hope-c-ivMHWx.hope-c-PJLV-ifnAIcD-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--hope-colors-transparent1) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 说明 */
+    /* 白天模式 */
+    .hope-c-PJLV-ikSuVsl-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--hope-colors-transparent1) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 夜间模式 */
+    .hope-c-PJLV-iiuDLME-css {
+      backdrop-filter: blur(10px);
+      /* 毛玻璃效果的强度 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 为 Safari 浏览器添加兼容性 */
+      background-color: var(--hope-colors-transparent1) !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <title>Loading...</title>
+  <script>
+    window.OPENLIST_CONFIG = {
+      cdn: undefined,
+      monaco_cdn: undefined,
+      base_path: undefined,
+      api: undefined,
+      main_color: undefined,
+    }
+    window.__dynamic_base__ = window.OPENLIST_CONFIG.cdn || ""
+  </script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <script src="/src/main.tsx" type="module"></script>
+  <!-- customize body -->
+</body>
+
 </html>
